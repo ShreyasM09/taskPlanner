@@ -11,6 +11,10 @@ app.use(express.json());
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
+app.get("/", (req, res) => {
+    res.send("Smart Task Planner is running.");
+});
+
 app.post("/api/generate-plan", async (req, res) => {
     try {
         const { goal, deadline, experienceLevel } = req.body;
