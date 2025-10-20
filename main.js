@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
     res.send("Smart Task Planner is running.");
 });
 
-app.post("/api/generate-plan", async (req, res) => {
+app.post("/generate-plan", async (req, res) => {
     try {
         const { goal, deadline, experienceLevel } = req.body;
 
@@ -41,11 +41,12 @@ Output strictly in JSON (no explanations, no markdown, no extra text):
   "goal": "string",
   "tasks": [
     {
+      "id": number,
       "task": "string",
       "description": "string",
       "start_date": "YYYY-MM-DD",
       "end_date": "YYYY-MM-DD",
-      "dependencies": ["string"]
+      "dependencies": [ids of dependent tasks]
     }
   ]
 }
